@@ -1,4 +1,5 @@
 import React from 'react';
+import { imageFolder } 'Global';
 
 export default function ModalWallet() {
      return (
