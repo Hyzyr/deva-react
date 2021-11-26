@@ -659,6 +659,7 @@ li {
   border-color: #FFFFFF;
 }
 .input::-webkit-input-placeholder {
+  color: #abafc4;
   font-family: "Poppins", sans-serif;
   font-style: normal;
   font-weight: 400;
@@ -667,6 +668,7 @@ li {
   font-weight: 600;
 }
 .input::-moz-placeholder {
+  color: #abafc4;
   font-family: "Poppins", sans-serif;
   font-style: normal;
   font-weight: 400;
@@ -675,6 +677,7 @@ li {
   font-weight: 600;
 }
 .input:-ms-input-placeholder {
+  color: #abafc4;
   font-family: "Poppins", sans-serif;
   font-style: normal;
   font-weight: 400;
@@ -683,6 +686,7 @@ li {
   font-weight: 600;
 }
 .input::-ms-input-placeholder {
+  color: #abafc4;
   font-family: "Poppins", sans-serif;
   font-style: normal;
   font-weight: 400;
@@ -691,6 +695,7 @@ li {
   font-weight: 600;
 }
 .input::placeholder {
+  color: #abafc4;
   font-family: "Poppins", sans-serif;
   font-style: normal;
   font-weight: 400;

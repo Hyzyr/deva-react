@@ -9,12 +9,12 @@ const PasswordInput = React.forwardRef((props, ref) => {
           }
      };
      return (
-          <div className={`input__outer ${visible ? 'visible' : ''}`}>
+          <div className={`input__outer input--icoRight ${visible ? 'visible' : ''}`}>
                <input
                     type={visible ? 'text' : 'password'}
                     autoComplete="new-password"
                     placeholder="Password"
-                    className="input"
+                    className="input "
                     name={props.name}
                     onChange={setValue}
                     ref={ref}
