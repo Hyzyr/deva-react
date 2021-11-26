@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
 export default function GradientInput(props) {
-     const [value, setValue] = useState('');
+     const value = props.value;  
+     const setValue = props.setValue;  
      const length = String(value).length > 3 ? String(value).length : 3;
      const style = { height: 80 };
      let addGradient = String(value).length > 0;

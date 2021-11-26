@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import ManageTokenLists from './manageToken/ManageTokenLists';
-import ManageTokenToken from './manageToken/ManageTokenToken';
+import ManageTokenLists from './ManageTokenLists';
+import ManageTokenToken from './ManageTokenToken';
 
 export default function ModalManageToken() {
      const [tab, setTab] = useState('LISTS');

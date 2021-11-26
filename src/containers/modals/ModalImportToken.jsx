@@ -1,55 +1,78 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
+import { imgFolder } from 'Global';
+import { getTokenById } from 'moduls/tokenModuls';
+import { connect } from 'react-redux';
+import Loader from 'components/LoaderSpinner';
 
-export default function ModalImportToken() {
-    return (
-        <section className="modal modal--importToken">
-        <div className="modal__inner">
-             <div className="modal__inner-header">
-                  <button type="button" className="modal__inner-header-back"></button>
-                  <h5 className="h5 h5--thin">Select a Token</h5>
-                  <button type="button" className="modal__inner-header-close"></button>
-             </div>
-             <div className="modal__inner-body">
-                  <div className="importToken">
-                       <div className="importToken__data">
-                            <div className="importToken__data-ico">
-                                 <img src="images/coins/eth.png" alt="eth" />
-                            </div>
-                            <div className="importToken__data-content">
-                                 <div className="importToken__data-content-title">
-                                      <span className="title2">BNB</span>
-                                      <span className="para">Binance Coin</span>
-                                 </div>
-                                 <div className="importToken__data-content-code">
-                                      0xB8c77482e45F1F44dE1745F52C74426C631bDD52
-                                 </div>
-                                 <div className="importToken__data-content-caption">
-                                      <span>Via Synthetix</span>
-                                      <div className="importToken__data-content-caption-ico">
-                                           <img src="images/coins/eth.png" alt="eth" />
-                                      </div>
-                                 </div>
-                            </div>
-                       </div>
-                       <div className="importToken__warning">
-                            <div className="importToken__warning-ico">
-                                 <img src="images/icons/warning.svg" alt="warning" />
-                            </div>
-                            <h5 className="importToken__warning-title h5 h5--thin">
-                                 Trade at your own risk!
-                            </h5>
-                            <p className="importToken__warning-para para">
-                                 Anyone can create a token, including creating fake versions
-                                 of existing tokens that claim to represent projects. If you
-                                 purchase this token, you may not be able to sell it back
-                            </p>
-                       </div>
-                       <div className="importToken___footer">
-                            <button className="button button--primary">Import</button>
-                       </div>
-                  </div>
-             </div>
-        </div>
-   </section>
-    )
+function ModalImportToken(props) {
+     const [token, setToken] = useState(null);
+
+     // after component first mounted
+     // get fulkl token info from tokenModul
+     // and update page state
+     useEffect(() => {
+          getTokenById(props.tokenId).then((response) => {
+               console.log(response);
+               // userTokenList.current = response;
+               setToken(response);
+          });
+     }, []);
+
+     return token === null ? (
+          <div className="modal__inner-body">
+               <Loader />
+          </div>
+     ) : (
+          <div className="modal__inner-body">
+               <div className="importToken">
+                    <div className="importToken__data">
+                         <div className="importToken__data-ico">
+                              <img src={imgFolder + token.image} alt="eth" />
+                         </div>
+                         <div className="importToken__data-content">
+                              <div className="importToken__data-content-title">
+                                   <span className="title2">{token.titleShort}</span>
+                                   <span className="para">{token.title}</span>
+                              </div>
+                              <div className="importToken__data-content-code">{token.code}</div>
+                              <div className="importToken__data-content-caption">
+                                   <span>{token.founders}</span>
+                                   <div className="importToken__data-content-caption-ico">
+                                        <img src={imgFolder + token.image} alt="eth" />
+                                   </div>
+                              </div>
+                         </div>
+                    </div>
+                    <div className="importToken__warning">
+                         <div className="importToken__warning-ico">
+                              <img src={imgFolder + 'icons/warning.svg'} alt="warning" />
+                         </div>
+                         <h5 className="importToken__warning-title h5 h5--thin">
+                              Trade at your own risk!
+                         </h5>
+                         <p className="importToken__warning-para para">
+                              Anyone can create a token, including creating fake versions of
+                              existing tokens that claim to represent projects. If you purchase this
+                              token, you may not be able to sell it back
+                         </p>
+                    </div>
+                    <div className="importToken___footer">
+                         <button
+                              className="button button--primary"
+                              onClick={() => props.changeModal(null)}
+                         >
+                              Import
+                         </button>
+                    </div>
+               </div>
+          </div>
+     );
 }
+
+const mapDispatchToProps = (dispatch) => ({
+     changeModal: (modal, modalProps = null) =>
+          dispatch({ type: 'CHANGE_MODAL', modal: modal, modalProps: modalProps }),
+});
+
+// connect porps for this page from state store
+export default connect(null, mapDispatchToProps)(ModalImportToken);

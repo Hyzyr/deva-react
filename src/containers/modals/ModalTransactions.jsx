@@ -1,35 +1,46 @@
-import React from 'react';
-
+import RadioButtons from 'components/radioButtons/RadioButtons';
+import React, { useState } from 'react';
+import Tooltip from 'components/Tooltip';
 export default function ModalTransactions() {
+     const defaultTollerance = [
+          {
+               id: 0,
+               value: '0.1%',
+          },
+          {
+               id: 1,
+               value: '0.5%',
+          },
+          {
+               id: 2,
+               value: '1.0%',
+          },
+     ];
+     const [tollerance, setTollerance] = useState(defaultTollerance[1]);
+
      return (
           <div className="modal__inner-body">
                <div className="transaction">
                     <div className="transaction__tolerance">
                          <p className="transaction__tolerance-para para">
                               Slippage tolerance
-                              <span className="tooltip__outer right">
-                                   <img src="images/icons/help.svg" alt="" />
-                                   <span className="tooltip">
-                                        <span className="tooltip__inner">
-                                             Your transaction will revert if the price changes
-                                             unfavorably by more than this percentage
-                                        </span>
-                                   </span>
-                              </span>
+                              <Tooltip
+                                   addClass={'right'}
+                                   text={
+                                        'Your transaction will revert if the price changes ' +
+                                        'unfavorably by more than this percentage.'
+                                   }
+                              />
                          </p>
                          <div className="transaction__tolerance-row">
-                              <button type="button" className="buttonTag">
-                                   0.1%
-                              </button>
-                              <button type="button" className="buttonTag selected">
-                                   0.5%
-                              </button>
-                              <button type="button" className="buttonTag">
-                                   1.0%
-                              </button>
+                              <RadioButtons
+                                   buttons={defaultTollerance}
+                                   selected={tollerance}
+                                   setSelected={setTollerance}
+                              />
                               <input
                                    type="text"
-                                   value="0.5%"
+                                   value={tollerance.value}
                                    className="input input--small"
                                    disabled
                               />
@@ -38,15 +49,12 @@ export default function ModalTransactions() {
                     <div className="transaction__deadline">
                          <p className="transaction__deadline-para para">
                               Transaction deadline
-                              <span className="tooltip__outer right">
-                                   <img src="images/icons/help.svg" alt="" />
-                                   <span className="tooltip">
-                                        <span className="tooltip__inner">
-                                             Your transaction will revert if it is pending for more
-                                             than this long
-                                        </span>
-                                   </span>
-                              </span>
+                              <Tooltip
+                                   addClass={'right'}
+                                   text={
+                                        'Your transaction will revert if it is pending for more than this long'
+                                   }
+                              />
                          </p>
                          <div className="transaction__deadline-row">
                               <input
@@ -57,7 +65,7 @@ export default function ModalTransactions() {
                                    id="minutes"
                                    // onChange = {()=>{}}
                               />
-                              <label for="minutes">Minutes</label>
+                              <label htmlFor="minutes">Minutes</label>
                          </div>
                     </div>
                     <div className="transaction__interface">
@@ -67,35 +75,37 @@ export default function ModalTransactions() {
                          <div className="transaction__interface-row">
                               <p className="transaction__interface-row-para">
                                    Transaction deadline
-                                   <span className="tooltip__outer right">
-                                        <img src="images/icons/help.svg" alt="" />
-                                        <span className="tooltip">
-                                             <span className="tooltip__inner">
-                                                  Your transaction will revert if it is pending for
-                                                  more than this long
-                                             </span>
-                                        </span>
-                                   </span>
+                                   <Tooltip
+                                        addClass={'right'}
+                                        text={
+                                             'By passes confirmation modals and allows high ' +
+                                             'slippage trades. Use at your own risk'
+                                        }
+                                   />
                               </p>
                               <div className="switch">
-                                   <input type="checkbox" name="deadline" />
+                                   <input
+                                        type="checkbox"
+                                        name="deadline"
+                                        defaultChecked="checked"
+                                   />
                                    <label></label>
                               </div>
                          </div>
                          <div className="transaction__interface-row">
                               <p className="transaction__interface-row-para">
                                    Disable Multihops
-                                   <span className="tooltip__outer right">
-                                        <img src="images/icons/help.svg" alt="" />
-                                        <span className="tooltip">
-                                             <span className="tooltip__inner">
-                                                  Restricts swaps to direct pairt only
-                                             </span>
-                                        </span>
-                                   </span>
+                                   <Tooltip
+                                        addClass={'right'}
+                                        text={'Restricts swaps to direct pairt only'}
+                                   />
                               </p>
                               <div className="switch">
-                                   <input type="checkbox" name="multihops" />
+                                   <input
+                                        type="checkbox"
+                                        name="multihops"
+                                        defaultChecked="checked"
+                                   />
                                    <label></label>
                               </div>
                          </div>

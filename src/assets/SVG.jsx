@@ -21,21 +21,21 @@ export const manageIco = (
      >
           <path
                d="M20 7H4C3.73478 7 3.48043 6.89464 3.29289 6.70711C3.10536 6.51957 3 6.26522 3 6V4C3 3.73478 3.10536 3.48043 3.29289 3.29289C3.48043 3.10536 3.73478 3 4 3H20C20.2652 3 20.5196 3.10536 20.7071 3.29289C20.8946 3.48043 21 3.73478 21 4V6C21 6.26522 20.8946 6.51957 20.7071 6.70711C20.5196 6.89464 20.2652 7 20 7Z"
-               stroke-width="1.5"
-               stroke-linecap="round"
-               stroke-linejoin="round"
+               strokeWidth="1.5"
+               strokeLinecap="round"
+               strokeLinejoin="round"
           />
           <path
                d="M20 14H4C3.73478 14 3.48043 13.8946 3.29289 13.7071C3.10536 13.5196 3 13.2652 3 13V11C3 10.7348 3.10536 10.4804 3.29289 10.2929C3.48043 10.1054 3.73478 10 4 10H20C20.2652 10 20.5196 10.1054 20.7071 10.2929C20.8946 10.4804 21 10.7348 21 11V13C21 13.2652 20.8946 13.5196 20.7071 13.7071C20.5196 13.8946 20.2652 14 20 14Z"
-               stroke-width="1.5"
-               stroke-linecap="round"
-               stroke-linejoin="round"
+               strokeWidth="1.5"
+               strokeLinecap="round"
+               strokeLinejoin="round"
           />
           <path
                d="M20 21H4C3.73478 21 3.48043 20.8946 3.29289 20.7071C3.10536 20.5196 3 20.2652 3 20V18C3 17.7348 3.10536 17.4804 3.29289 17.2929C3.48043 17.1054 3.73478 17 4 17H20C20.2652 17 20.5196 17.1054 20.7071 17.2929C20.8946 17.4804 21 17.7348 21 18V20C21 20.2652 20.8946 20.5196 20.7071 20.7071C20.5196 20.8946 20.2652 21 20 21Z"
-               stroke-width="1.5"
-               stroke-linecap="round"
-               stroke-linejoin="round"
+               strokeWidth="1.5"
+               strokeLinecap="round"
+               strokeLinejoin="round"
           />
      </svg>
 );
@@ -94,6 +94,70 @@ export const qrIco = (
                strokeWidth="1.5"
                strokeLinecap="round"
                strokeLinejoin="round"
+          />
+     </svg>
+);
+
+export const swapIco = (
+     <svg width="18" height="16" viewBox="0 0 18 16" fill="none">
+          <path
+               d="M7 4L4 1L1 4"
+               stroke="currentColor"
+               strokeWidth="1.5"
+               strokeLinecap="round"
+               strokeLinejoin="round"
+          />
+          <path
+               d="M4 15V1"
+               stroke="currentColor"
+               strokeWidth="1.5"
+               strokeLinecap="round"
+               strokeLinejoin="round"
+          />
+          <path
+               d="M11 12L14 15L17 12"
+               stroke="currentColor"
+               strokeWidth="1.5"
+               strokeLinecap="round"
+               strokeLinejoin="round"
+          />
+          <path
+               d="M14 1V15"
+               stroke="currentColor"
+               strokeWidth="1.5"
+               strokeLinecap="round"
+               strokeLinejoin="round"
+          />
+     </svg>
+);
+
+export const submittedIco = (
+     <svg width="80" height="80" viewBox="0 0 80 80" stroke="currentColor" fill="none">
+          <path
+               d="M32.5034 33.353H46.6468V47.4964"
+               stroke="currentColor"
+               strokeWidth="4"
+               strokeLinecap="round"
+               strokeLinejoin="round"
+          />
+          <path
+               d="M46.6651 33.3331L21.5817 58.4164C19.8217 60.1764 16.9651 60.1764 15.2051 58.4164V58.4164C10.7717 53.9831 8.27505 47.9698 8.26172 41.6998V41.6998C8.26172 37.5998 9.05505 33.4998 10.6317 29.6431C12.1851 25.8464 14.4951 22.2898 17.5784 19.2098C23.1084 13.6798 30.7484 10.2598 39.1851 10.2598C47.6217 10.2598 55.2617 13.6798 60.7917 19.2098C66.3217 24.7398 69.7417 32.3764 69.7417 40.8164C69.7417 49.2531 66.3217 56.8931 60.7917 62.4231C55.2617 67.9531 47.6251 71.3731 39.1851 71.3731C35.8951 71.3731 32.6117 70.8064 29.4617 69.7464"
+               stroke="currentColor"
+               strokeWidth="4"
+               strokeLinecap="round"
+               strokeLinejoin="round"
+          />
+     </svg>
+);
+
+export const plusIco = (
+     <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M8 1V15" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+          <path
+               d="M1 8C5.66667 8 15 8 15 8"
+               stroke="currentColor"
+               strokeWidth="1.5"
+               strokeLinecap="round"
           />
      </svg>
 );
